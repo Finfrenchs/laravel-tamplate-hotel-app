@@ -26,7 +26,7 @@ class SettingSeeder extends BaseSeeder
             'payment_cod_status' => 1,
             'payment_cod_description' => 'Please pay money directly to the postman, if you choose cash on delivery method (COD).',
             'payment_bank_transfer_status' => 1,
-            'payment_bank_transfer_description' => 'Please send money to our bank account: ACB - 69270 213 19.',
+            'payment_bank_transfer_description' => 'Please send money to our bank account: BCA - 69270 213 19.',
             'payment_stripe_payment_type' => 'stripe_checkout',
 
             'language_switcher_display' => 'dropdown',

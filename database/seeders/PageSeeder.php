@@ -34,7 +34,7 @@ class PageSeeder extends BaseSeeder
                     Html::tag('div', '[rooms enable_lazy_loading="yes"][/rooms]') .
                     Html::tag(
                         'div',
-                        '[video-introduction title="Take a tour" subtitle="Discover Our Underground." content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." background_image="general/video-background-02.jpg" video_image="general/video-banner-01.jpg" video_url="https://www.youtube.com/watch?v=EEJFMdfraVY" button_text="Book Now" button_url="/rooms" enable_lazy_loading="yes"][/video-introduction]'
+                        '[video-introduction title="Take a tour" subtitle="Discover Our Underground." content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." background_image="general/video-background-02.jpg" video_image="general/video-banner-01.jpg" video_url="https://youtu.be/3QtCqzWaT8Q?si=IajNe7Ipv2LMcN21" button_text="Book Now" button_url="/rooms" enable_lazy_loading="yes"][/video-introduction]'
                     ) .
                     Html::tag('div', '[testimonial title="testimonials" subtitle="Client Feedback" enable_lazy_loading="yes"][/testimonial]') .
                     Html::tag(
@@ -77,7 +77,7 @@ class PageSeeder extends BaseSeeder
                 'name' => 'About us',
                 'content' => Html::tag(
                     'div',
-                    '[youtube-video url="https://www.youtube.com/watch?v=EEJFMdfraVY" background_image="general/04.jpg"][/youtube-video]'
+                    '[youtube-video url="https://youtu.be/3QtCqzWaT8Q?si=IajNe7Ipv2LMcN21" background_image="general/04.jpg"][/youtube-video]'
                 ) .
                     Html::tag(
                         'p',
