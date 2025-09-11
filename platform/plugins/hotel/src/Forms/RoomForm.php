@@ -47,6 +47,12 @@ class RoomForm extends FormAbstract
             ->withCustomFields()
             ->add('name', TextField::class, NameFieldOption::make()->required()->toArray())
             ->add('description', TextareaField::class, DescriptionFieldOption::make()->toArray())
+            ->add('video_url', TextField::class, [
+                'label' => __('Video URL'),
+                'attr' => [
+                    'placeholder' => 'https://www.youtube.com/embed/xxxxxx',
+                ],
+            ])
             ->add(
                 'is_featured',
                 OnOffField::class,

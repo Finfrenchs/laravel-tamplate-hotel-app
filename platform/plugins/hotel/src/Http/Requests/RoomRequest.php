@@ -14,6 +14,7 @@ class RoomRequest extends Request
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:400'],
+            'video_url' => ['nullable', 'string', 'max:255'],
             'status' => Rule::in(BaseStatusEnum::values()),
             'is_featured' => new OnOffRule(),
             'content' => ['nullable', 'string', 'max:100000'],

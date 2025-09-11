@@ -6,6 +6,33 @@
         ->add('lightGallery-js', 'plugins/lightGallery/js/lightgallery.min.js', ['jquery']);
 @endphp
 
+@php
+    $videoUrl = $room->video_url ?? null;
+
+    if ($videoUrl) {
+        // Handle format: https://www.youtube.com/watch?v=xxxx
+        if (\Illuminate\Support\Str::contains($videoUrl, 'watch?v=')) {
+            $videoId = \Illuminate\Support\Str::after($videoUrl, 'watch?v=');
+            $videoId = \Illuminate\Support\Str::before($videoId, '&'); // hapus parameter tambahan
+            $videoUrl = 'https://www.youtube.com/embed/' . $videoId;
+        }
+
+        // Handle format: https://youtu.be/xxxx
+        elseif (\Illuminate\Support\Str::contains($videoUrl, 'youtu.be/')) {
+            $videoId = \Illuminate\Support\Str::after($videoUrl, 'youtu.be/');
+            $videoId = \Illuminate\Support\Str::before($videoId, '?');
+            $videoUrl = 'https://www.youtube.com/embed/' . $videoId;
+        }
+
+        // Handle format: https://www.youtube.com/shorts/xxxx
+        elseif (\Illuminate\Support\Str::contains($videoUrl, 'youtube.com/shorts/')) {
+            $videoId = \Illuminate\Support\Str::after($videoUrl, 'youtube.com/shorts/');
+            $videoId = \Illuminate\Support\Str::before($videoId, '?');
+            $videoUrl = 'https://www.youtube.com/embed/' . $videoId;
+        }
+    }
+@endphp
+
 <section
     class="breadcrumb-area"
     style="background-image: url({{ theme_option('rooms_banner') ? RvMedia::getImageUrl(theme_option('rooms_banner')) : Theme::asset()->url('img/bg/banner.jpg') }});"
@@ -54,6 +81,28 @@
                         </div>
                     </div>
                     {!! BaseHelper::clean($room->description) !!}
+
+                    @if ($videoUrl)
+                        <div class="room-video mt-4 mb-4">
+                            <iframe width="100%" height="400"
+                                src="{{ e($videoUrl) }}"
+                                title="Room video"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    @endif
+
+
+                    {{-- @if ($room->video_url)
+                        <div class="room-video mt-4 mb-4">
+                            <iframe width="100%" height="400"
+                                src="{{ $room->video_url }}"
+                                frameborder="0" allowfullscreen>
+                            </iframe>
+                        </div>
+                    @endif --}}
 
                     @if (count($room->amenities) > 0)
                         <div class="room-fearures clearfix mt-60 mb-60">

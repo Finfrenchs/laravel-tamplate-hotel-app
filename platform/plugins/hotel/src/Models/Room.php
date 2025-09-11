@@ -31,6 +31,7 @@ class Room extends BaseModel
         'tax_id',
         'order',
         'status',
+        'video_url',
     ];
 
     protected $casts = [
