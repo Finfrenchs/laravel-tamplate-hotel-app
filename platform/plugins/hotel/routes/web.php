@@ -18,6 +18,7 @@ use Botble\Hotel\Models\Service;
 use Botble\Slug\Facades\SlugHelper;
 use Botble\Theme\Facades\Theme;
 use Illuminate\Support\Facades\Route;
+use Botble\Hotel\Http\Controllers\HotelInvoiceController;
 
 Route::group(['namespace' => 'Botble\Hotel\Http\Controllers', 'middleware' => ['web', 'core']], function (): void {
     Route::group(['prefix' => BaseHelper::getAdminPrefix() . '/hotel', 'middleware' => 'auth'], function (): void {
@@ -269,6 +270,37 @@ Route::group(['namespace' => 'Botble\Hotel\Http\Controllers', 'middleware' => ['
                 'permission' => 'coupons.destroy',
             ]);
         });
+
+        Route::group(['prefix' => 'hotel-invoices', 'as' => 'hotel-invoices.'], function (): void {
+            // Dashboard billing (harus duluan supaya tidak ketabrak {id})
+            Route::get('dashboard/billings', [HotelInvoiceController::class, 'dashboardBillings'])
+                ->name('dashboard.billings')
+                ->permission('hotel-invoices.billing.dashboard');
+
+            // Bayar invoice resto
+            Route::put('{id}/pay', [HotelInvoiceController::class, 'payInvoiceWithResto'])
+                ->name('pay')
+                ->where('id', '[0-9]+')
+                ->permission('invoices.edit');
+
+            // Detail invoice (resto only)
+            Route::get('{id}', [HotelInvoiceController::class, 'showInvoiceWithResto'])
+                ->name('show')
+                ->where('id', '[0-9]+')
+                ->permission('invoices.index');
+            // // Detail invoice + resto
+            // Route::get('{room_id}', [HotelInvoiceController::class, 'showInvoiceWithResto'])
+            //     ->name('show')
+            //     ->permission('invoices.index')
+            //     ->wherePrimaryKey();
+
+            // // Bayar invoice + resto
+            // Route::post('{room_id}/pay', [HotelInvoiceController::class, 'payInvoiceWithResto'])
+            //     ->name('pay')
+            //     ->permission('invoices.edit')
+            //     ->wherePrimaryKey();
+        });
+
     });
 
     if (defined('THEME_MODULE_SCREEN_NAME')) {

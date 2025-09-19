@@ -83,4 +83,9 @@ class Invoice extends BaseModel
 
         return $code;
     }
+
+    public function booking()
+    {
+        return $this->belongsTo(Booking::class, 'reference_id')->withDefault();
+    }
 }

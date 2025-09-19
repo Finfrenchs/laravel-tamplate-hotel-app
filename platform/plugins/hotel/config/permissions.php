@@ -117,6 +117,12 @@ return [
         'parent_flag' => 'invoices.index',
     ],
 
+    //New added
+    [
+        'name' => 'Billing Resto',
+        'flag' => 'hotel-invoices.billing.dashboard',
+    ],
+
     [
         'name' => 'Bookings Reports',
         'flag' => 'booking.reports.index',

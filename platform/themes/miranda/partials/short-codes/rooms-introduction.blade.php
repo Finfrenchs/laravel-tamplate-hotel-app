@@ -1,4 +1,4 @@
-<section
+{{-- <section
     class="room-gallery-cta"
     style="background-image: url({{ RvMedia::getImageUrl($background_image) }});"
 >
@@ -46,4 +46,4 @@
             >
         @endif
     </div>
-</section>
+</section> --}}

@@ -365,6 +365,15 @@ class HotelServiceProvider extends ServiceProvider
                     'name' => 'plugins/hotel::invoice.name',
                     'icon' => 'ti ti-receipt',
                     'route' => 'invoices.index',
+                ])
+                ->registerItem([
+                    'id'          => 'cms-plugins-hotel-billing-dashboard',
+                    'priority'    => 7,
+                    'parent_id'   => 'cms-plugins-booking', // ✅ ini ID menu Bookings
+                    'name'        => 'Resto Billings', // ✅ judul lebih jelas
+                    'icon'        => 'ti ti-cash', // ✅ icon sesuai billing/tagihan
+                    'url'         => route('hotel-invoices.dashboard.billings'),
+                    'permissions' => ['hotel-invoices.billing.dashboard'],
                 ]);
         });
 
@@ -481,5 +490,9 @@ class HotelServiceProvider extends ServiceProvider
             Captcha::registerFormSupport(ForgotPasswordForm::class, ForgotPasswordRequest::class, trans('plugins/hotel::hotel.forgot_password_form'));
             Captcha::registerFormSupport(ResetPasswordForm::class, ResetPasswordRequest::class, trans('plugins/hotel::hotel.reset_password_form'));
         }
+
+        // $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
+        $this->loadRoutesFrom(base_path('platform/plugins/hotel/routes/api.php'));
+
     }
 }

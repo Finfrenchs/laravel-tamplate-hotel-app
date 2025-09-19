@@ -1,4 +1,4 @@
-<section class="cta-section pt-115 pb-160">
+{{-- <section class="cta-section pt-115 pb-160">
     <div class="container">
         <div class="cta-inner">
             <div class="row justify-content-center">
@@ -47,4 +47,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}

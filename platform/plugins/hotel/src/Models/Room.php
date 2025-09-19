@@ -247,4 +247,16 @@ class Room extends BaseModel
             $room->calendars()->delete();
         });
     }
+
+    public function isCurrentlyAvailable(): bool
+    {
+        // Hitung total kamar tersedia
+        $totalRooms = $this->number_of_rooms;
+
+        // Hitung booking aktif (status confirmed, pending dsb. sesuai scope active())
+        $bookedRooms = $this->activeBookingRooms->sum('number_of_rooms');
+
+        return $totalRooms > $bookedRooms;
+    }
+
 }

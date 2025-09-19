@@ -1,4 +1,4 @@
-<section class="testimonial-section pb-115 pt-115">
+{{-- <section class="testimonial-section pb-115 pt-115">
     <div class="container">
         <div class="section-title text-center mb-80">
             <span class="title-tag">{!! BaseHelper::clean($title) !!}</span>
@@ -23,4 +23,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}

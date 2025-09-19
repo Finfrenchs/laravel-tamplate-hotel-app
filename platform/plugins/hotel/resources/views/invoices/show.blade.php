@@ -55,6 +55,7 @@
                 </div>
             </div>
 
+            {{-- Hotel Invoice Items --}}
             <x-core::table class="table-transparent" :striped="false" :hover="false">
                 <x-core::table.header>
                     <x-core::table.header.cell>
@@ -115,7 +116,7 @@
                     @endif
                     <x-core::table.body.row>
                         <x-core::table.body.cell class="text-end" colspan="2">
-                            {{ trans('plugins/hotel::invoice.total_amount') }}:
+                            {{ trans('plugins/hotel::invoice.total_amount') }} (Hotel):
                         </x-core::table.body.cell>
                         <x-core::table.body.cell class="text-center">
                             <strong>{{ format_price($invoice->amount) }}</strong>
@@ -123,6 +124,50 @@
                     </x-core::table.body.row>
                 </x-core::table.body>
             </x-core::table>
+
+            {{-- Resto Summary --}}
+            @if (!empty($restoSummary) && isset($restoSummary['total']))
+                <div class="mt-6">
+                    <h5>Tagihan Resto</h5>
+                    <x-core::table class="table-bordered">
+                        <x-core::table.body>
+                            <x-core::table.body.row>
+                                <x-core::table.body.cell class="text-end" colspan="2">
+                                    Total Resto:
+                                </x-core::table.body.cell>
+                                <x-core::table.body.cell class="text-center">
+                                    <strong>{{ format_price($restoSummary['total']) }}</strong>
+                                </x-core::table.body.cell>
+                            </x-core::table.body.row>
+                        </x-core::table.body>
+                    </x-core::table>
+
+                    @if (isset($restoSummary['billings']) && count($restoSummary['billings']) > 0)
+                        <table class="table table-striped mt-4">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Room</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($restoSummary['billings'] as $billing)
+                                    <tr>
+                                        <td>{{ $billing['id'] }}</td>
+                                        <td>{{ $billing['customer_name'] ?? '-' }}</td>
+                                        <td>{{ $billing['room_id'] ?? '-' }}</td>
+                                        <td>{{ format_price($billing['total'] ?? 0) }}</td>
+                                        <td>{{ ucfirst($billing['status'] ?? 'unpaid') }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+            @endif
         </x-core::card.body>
     </x-core::card>
 @stop

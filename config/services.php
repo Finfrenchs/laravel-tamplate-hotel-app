@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'resto_api' => [
+        'base_url' => env('RESTO_API_URL', 'http://172.30.169.159:8001/api/v1/resto'),
+    ],
+
 ];
