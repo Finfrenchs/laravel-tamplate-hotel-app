@@ -10,7 +10,7 @@ class RestoApiService
 
     public function __construct()
     {
-        $this->baseUrl = env('RESTO_API_URL') ?: config('services.resto_api.base_url', 'http://172.30.169.159:8001/api/v1/resto');
+        $this->baseUrl = env('RESTO_API_URL') ?: config('services.resto_api.base_url', 'https://resto.kedasresort.com/api/v1/resto');
     }
 
     // 🔹 Ambil semua unpaid billing (lobby + hotel)

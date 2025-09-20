@@ -1,4 +1,79 @@
-<section class="room-slider">
+<section class="room-slider pt-5 pb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        {{-- Title & Subtitle --}}
+        <div class="section-header text-center mb-4">
+            <h2 class="section-title">Pilihan Kamar Terbaik</h2>
+            <p class="section-subtitle">Nikmati kenyamanan dan fasilitas terbaik selama menginap</p>
+        </div>
+
+        {{-- Slider --}}
+        <div class="rooms-slider-horizontal">
+            @foreach ($rooms as $room)
+                <a href="{{ $room->url }}" class="single-rooms-box">
+                    <div class="room-img" style="background-image: url({{ RvMedia::getImageUrl($room->image, '550x580', false, RvMedia::getDefaultImage()) }});"></div>
+                    <div class="room-desc">
+                        <h3>{{ $room->name }}</h3>
+                        <p>{{ Str::limit($room->description, 100) }}</p>
+                        <div class="price">RP{{ number_format($room->price,0,',','.') }}</div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        {{-- Arrows --}}
+        <div class="slider-arrows">
+            <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>
+            <button class="next-arrow"><i class="fal fa-angle-right"></i></button>
+        </div>
+    </div>
+</section>
+
+
+{{-- <section class="room-slider pt-5 pb-5">
+    <div class="container">
+        <div class="rooms-slider-horizontal">
+            @foreach ($rooms as $room)
+                <a href="{{ $room->url }}" class="single-rooms-box"> --}}
+                    {{-- Gambar Room --}}
+                    {{-- <div class="room-img" style="background-image: url({{ RvMedia::getImageUrl($room->image, '550x580', false, RvMedia::getDefaultImage()) }});"></div> --}}
+
+                    {{-- Konten Room --}}
+                    {{-- <div class="room-desc">
+                        <h3>{{ $room->name }}</h3>
+                        <p>{{ Str::limit($room->description, 100) }}</p>
+                        <div class="price">{{ $room->price }}</div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
+</section> --}}
+
+{{-- <section class="room-slider pt-5 pb-5">
+    <div class="container">
+        <div class="rooms-slider-slick">
+            @foreach ($rooms as $room)
+                <div class="single-rooms-box">
+                    {{-- Gambar Room --}}
+                    {{-- <a href="{{ $room->url }}">
+                        <div class="room-img" style="background-image: url({{ RvMedia::getImageUrl($room->image, '550x580', false, RvMedia::getDefaultImage()) }});"></div> --}}
+
+                        {{-- Konten Room --}}
+                        {{-- <div class="room-desc">
+                            <h3>{{ $room->name }}</h3>
+                            <p>{{ Str::limit($room->description, 100) }}</p>
+                            <div class="price">{{ $room->price }}</div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section> --}}
+
+
+
+{{-- <section class="room-slider">
     <div class="container-fluid p-0">
         <div class="row rooms-slider-one">
             @foreach ($rooms as $room)
@@ -34,4 +109,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}

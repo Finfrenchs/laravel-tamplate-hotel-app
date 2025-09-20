@@ -256,7 +256,7 @@ body {
     }
 
     .half-circle-spinner .circle {
-        content: '';
+        content: "";
         position: absolute;
         width: 100%;
         height: 100%;
@@ -307,7 +307,7 @@ body {
 }
 
 .booking-form-body .left-line:before {
-    content: '';
+    content: "";
     background: $primary-color;
     height: 100%;
     width: 2px;
@@ -382,8 +382,8 @@ body {
 }
 
 .bookingtable .table thead th a:before {
-    content: '\f068';
-    font-family: 'Font Awesome 5 Pro';
+    content: "\f068";
+    font-family: "Font Awesome 5 Pro";
     border: 1px solid $primary-color;
     width: 20px;
     height: 20px;
@@ -396,7 +396,7 @@ body {
 }
 
 .bookingtable .table thead th a.collapsed:before {
-    content: '\f067';
+    content: "\f067";
 }
 
 .custom-checkbox label {
@@ -425,8 +425,8 @@ body {
 }
 
 .custom-checkbox label input:checked ~ span:before {
-    content: '\f00c';
-    font-family: 'Font Awesome 5 Pro';
+    content: "\f00c";
+    font-family: "Font Awesome 5 Pro";
     line-height: normal;
     font-size: 12px;
     position: absolute;
@@ -550,7 +550,12 @@ body {
     .room-gird-loop .room-box .room-desc .item-boxs .item-boxs-item {
         display: block;
     }
-    .room-gird-loop .room-box .room-desc .item-boxs .item-boxs-item .item-remove {
+    .room-gird-loop
+        .room-box
+        .room-desc
+        .item-boxs
+        .item-boxs-item
+        .item-remove {
         margin-top: 5px;
     }
 
@@ -599,7 +604,12 @@ body {
     .room-gird-loop .room-box .room-desc .item-boxs .item-boxs-item {
         display: block;
     }
-    .room-gird-loop .room-box .room-desc .item-boxs .item-boxs-item .item-remove {
+    .room-gird-loop
+        .room-box
+        .room-desc
+        .item-boxs
+        .item-boxs-item
+        .item-remove {
         margin-top: 5px;
     }
 }
@@ -758,7 +768,7 @@ footer {
     }
 }
 
-@import '../../../../../platform/plugins/language/resources/sass/language-public';
+@import "../../../../../platform/plugins/language/resources/sass/language-public";
 
 .language-wrapper {
     .dropdown-toggle::after {
@@ -899,7 +909,7 @@ footer {
     z-index: 10002;
 }
 
-body[dir='ltr'] {
+body[dir="ltr"] {
     .lg-outer {
         direction: ltr;
     }
@@ -941,7 +951,10 @@ body[dir='ltr'] {
     --bb-datagrid-item-width: 15rem;
     display: grid;
     grid-gap: var(--bb-datagrid-padding);
-    grid-template-columns: repeat(auto-fit, minmax(var(--bb-datagrid-item-width), 1fr));
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(var(--bb-datagrid-item-width), 1fr)
+    );
 }
 
 .datagrid-title {
@@ -1006,7 +1019,8 @@ header {
         .header-info {
             .item {
                 .title {
-                    font-family: var(--secondary-font), Arial, Helvetica, sans-serif;
+                    font-family:
+                        var(--secondary-font), Arial, Helvetica, sans-serif;
                 }
             }
         }
@@ -1039,7 +1053,7 @@ header {
 }
 
 .rating-wrap {
-    font-family: 'Font Awesome 5 Pro' !important;
+    font-family: "Font Awesome 5 Pro" !important;
     vertical-align: top;
     overflow: hidden;
     position: relative;
@@ -1049,7 +1063,7 @@ header {
 
     &:before {
         font-size: 12px;
-        content: '\f005\f005\f005\f005\f005';
+        content: "\f005\f005\f005\f005\f005";
         top: 0;
         position: absolute;
         left: 0;
@@ -1061,7 +1075,7 @@ header {
 
     .review-rate {
         overflow: hidden;
-        font-family: 'Font Awesome 5 Pro' !important;
+        font-family: "Font Awesome 5 Pro" !important;
         top: 0;
         left: 0;
         position: absolute;
@@ -1070,7 +1084,7 @@ header {
 
         &:before {
             font-size: 12px;
-            content: '\f005\f005\f005\f005\f005';
+            content: "\f005\f005\f005\f005\f005";
             top: 0;
             position: absolute;
             left: 0;
@@ -1144,11 +1158,12 @@ header {
 
     &:after {
         animation: lds-dual-ring 0.5s linear infinite;
-        border-color: var(--primary-color) transparent var(--primary-color) transparent;
+        border-color: var(--primary-color) transparent var(--primary-color)
+            transparent;
         border-radius: 50%;
         border-style: solid;
         border-width: 1px;
-        content: ' ';
+        content: " ";
         display: block;
         height: 40px;
         position: absolute;
@@ -1202,13 +1217,13 @@ header {
             margin: 0;
         }
 
-        &[type='number'] {
+        &[type="number"] {
             -moz-appearance: textfield;
         }
     }
 }
 
-[data-bb-toggle='toggle-guests-and-rooms'] {
+[data-bb-toggle="toggle-guests-and-rooms"] {
     background-color: transparent !important;
     border-bottom: 2px solid var(--color-1st) !important;
     color: rgba(119, 119, 119, 0.5) !important;
@@ -1270,7 +1285,7 @@ header {
     .contact_custom_fields_wrapper input {
         &:before {
             color: var(--color-1st);
-            content: '+';
+            content: "+";
             font-family: Font Awesome\5 Pro;
             font-weight: 300;
             left: 35px;
@@ -1318,11 +1333,11 @@ header {
         padding: 0;
     }
 
-    .form-check-input[type='checkbox'] {
+    .form-check-input[type="checkbox"] {
         border-radius: 0.25em;
     }
 
-    .form-check-input[type='radio'] {
+    .form-check-input[type="radio"] {
         border-radius: 50%;
     }
 
@@ -1341,15 +1356,15 @@ header {
         border-color: var(--primary-color);
     }
 
-    .form-check-input:checked[type='checkbox'] {
+    .form-check-input:checked[type="checkbox"] {
         --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
     }
 
-    .form-check-input:checked[type='radio'] {
+    .form-check-input:checked[type="radio"] {
         --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
     }
 
-    .form-check-input[type='checkbox']:indeterminate {
+    .form-check-input[type="checkbox"]:indeterminate {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
         --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
@@ -1411,7 +1426,7 @@ i.avatar-view {
     bottom: -55px !important;
 }
 
-[dir='rtl'] {
+[dir="rtl"] {
     .custom-checkbox input {
         left: unset;
         right: -99999px;
@@ -1487,3 +1502,89 @@ i.avatar-view {
 }
 
 /*! purgecss end ignore */
+
+/* ============================
+   Hotel About Section Styling
+   ============================ */
+// _custom.scss
+
+// .feature-box {
+//     background: #fff;
+//     border-radius: 12px;
+//     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+//     transition: all 0.3s ease;
+//     padding: 2rem;
+
+//     h5,
+//     p {
+//         color: #333;
+//         transition: color 0.3s ease;
+//     }
+
+//     .feature-icon {
+//         margin-bottom: 1rem;
+
+//         i,
+//         svg {
+//             font-size: 3.5rem; // besar icon
+//             color: var(--primary-color); // warna default
+//             transition: color 0.3s ease;
+//         }
+
+//         img {
+//             max-width: 80px;
+//         }
+//     }
+
+//     &:hover {
+//         background: var(--primary-color);
+//         transform: translateY(-5px);
+//         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+//         h5,
+//         p {
+//             color: #fff;
+//         }
+
+//         .feature-icon {
+//             i,
+//             svg {
+//                 color: #fff; // icon ikut jadi putih
+//             }
+//         }
+//     }
+// }
+
+.about-section {
+    .feature-box {
+        .feature-icon {
+            i,
+            svg {
+                font-size: 3.5rem; // lebih besar
+                color: var(--primary-color); // default warna primary
+                transition: all 0.3s ease;
+            }
+
+            img {
+                max-width: 80px;
+            }
+        }
+
+        &:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+            h5,
+            p {
+                color: #fff;
+            }
+
+            .feature-icon i,
+            .feature-icon svg {
+                color: #fff; // jadi putih saat hover
+                transform: scale(1.1); // efek grow kecil
+            }
+        }
+    }
+}

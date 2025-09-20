@@ -1,4 +1,4 @@
-<section
+{{-- <section
     class="room-type-section pt-115 pb-115"
     style="background-image: url({{ RvMedia::getImageUrl($background_image) }});"
 >
@@ -160,4 +160,4 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}

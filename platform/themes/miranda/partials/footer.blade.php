@@ -157,6 +157,76 @@
                 });
             </script>
         @endif
+
+        <!-- Slick CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+        <!-- Slick JS -->
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        {{-- <script>
+        $(document).ready(function(){
+            $('.rooms-slider-horizontal').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                infinite: false,
+                dots: false,
+                responsive: [
+                    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+                    { breakpoint: 768, settings: { slidesToShow: 1 } }
+                ]
+            });
+        });
+        </script> --}}
+        <script>
+        $(document).ready(function(){
+            const $slider = $('.rooms-slider-horizontal');
+
+            // Tombol manual
+            $('.prev-arrow').click(function(){ $slider.animate({scrollLeft: '-=320'}, 300); });
+            $('.next-arrow').click(function(){ $slider.animate({scrollLeft: '+=320'}, 300); });
+
+            // Optional: drag scroll dengan mouse
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            $slider.mousedown(function(e){
+                isDown = true;
+                startX = e.pageX - $slider.offset().left;
+                scrollLeft = $slider.scrollLeft();
+            });
+            $slider.mouseleave(function(){ isDown = false; });
+            $slider.mouseup(function(){ isDown = false; });
+            $slider.mousemove(function(e){
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - $slider.offset().left;
+                const walk = (x - startX) * 2; // scroll-fast
+                $slider.scrollLeft(scrollLeft - walk);
+            });
+        });
+        </script>
+
+
+        <script>
+        $(document).ready(function(){
+            $('.rooms-slider-slick').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                arrows: true,
+                infinite: false,
+                dots: false,
+                responsive: [
+                    { breakpoint: 1200, settings: { slidesToShow: 2 } },
+                    { breakpoint: 768, settings: { slidesToShow: 1 } }
+                ]
+            });
+        });
+        </script>
+
         </body>
 
         </html>

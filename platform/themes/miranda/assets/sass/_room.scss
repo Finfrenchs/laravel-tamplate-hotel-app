@@ -187,7 +187,7 @@
 
                 &::before {
                     position: absolute;
-                    content: '';
+                    content: "";
                     left: 50%;
                     top: 0;
                     height: 2px;
@@ -216,7 +216,10 @@
 
 /*=======  Room Slider  =======*/
 .room-slider {
+    background-color: #f9f9f9; // background berbeda
     position: relative;
+    padding-top: 80px;
+    padding-bottom: 80px;
     z-index: 1;
     /*=======  Room Slider One  =======*/
     .rooms-slider-one {
@@ -527,6 +530,189 @@
             }
         }
     }
+
+    .section-header {
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .section-subtitle {
+            font-size: 1rem;
+            color: #666;
+        }
+    }
+
+    /*=======  Room Slider Horizontal  =======*/
+    .rooms-slider-horizontal {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding-bottom: 20px;
+        -ms-overflow-style: none; // hide scrollbar IE
+        scrollbar-width: none; // hide scrollbar Firefox
+        &::-webkit-scrollbar {
+            display: none;
+        } // hide scrollbar Chrome
+
+        .single-rooms-box {
+            flex: 0 0 300px; // lebar tiap box
+            margin-right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .room-img {
+                width: 100%;
+                height: 250px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .room-desc {
+                padding: 15px;
+
+                h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    color: #333;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    color: #666;
+                    margin-bottom: 10px;
+                }
+
+                .price {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    border: 2px solid var(--primary-color); // default warna primary
+                    color: #666; // sama dengan description
+                    font-weight: 500;
+                    border-radius: 5px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .slider-arrows {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 5;
+
+        button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+
+            // &:hover {
+            //     background-color: darken(var(, 10%);
+            // }
+        }
+    }
+
+    /*=======  Room Slider Slick  =======*/
+    .rooms-slider-slick {
+        position: relative;
+
+        .single-rooms-box {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            a {
+                display: block;
+                color: inherit;
+                text-decoration: none;
+            }
+
+            .room-img {
+                width: 100%;
+                height: 250px;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .room-desc {
+                padding: 15px;
+
+                h3 {
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    color: #333;
+                }
+
+                p {
+                    font-size: 0.9rem;
+                    color: #666;
+                    margin-bottom: 10px;
+                }
+
+                .price {
+                    font-weight: 700;
+                    color: #ff5a5f;
+                    text-align: right;
+                }
+            }
+        }
+
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 24px;
+            color: #000;
+            z-index: 10;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+
+            &:hover {
+                background: #ff5a5f;
+                color: #fff;
+            }
+
+            &.slick-prev {
+                left: -25px;
+            }
+
+            &.slick-next {
+                right: -25px;
+            }
+        }
+    }
 }
 
 /*=======  Room Details  =======*/
@@ -676,9 +862,9 @@
                         top: 50%;
                         transform: translateY(-50%);
                         color: $primary-color;
-                        font-family: 'Font Awesome 5 Pro';
+                        font-family: "Font Awesome 5 Pro";
                         font-weight: 300;
-                        content: '\f00c';
+                        content: "\f00c";
                     }
                 }
             }
@@ -761,7 +947,7 @@
                 width: 40px;
                 height: 2px;
                 background-color: $primary-color;
-                content: '';
+                content: "";
                 @media #{$lg} {
                     width: 30px;
                 }

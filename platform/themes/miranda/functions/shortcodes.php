@@ -269,26 +269,44 @@ app()->booted(function (): void {
 
     shortcode()->registerLoadingState('rooms-introduction', Theme::getThemeNamespace('partials.short-codes.rooms-introduction-skeleton'));
 
+    // add_shortcode('hotel-about', __('Hotel About'), __('Hotel About'), function (Shortcode $shortcode) {
+    //     return Theme::partial('short-codes.hotel-about', [
+    //         'title' => $shortcode->title,
+    //         'description' => $shortcode->description,
+    //         'subtitle' => $shortcode->subtitle,
+    //         'block_icon_1' => $shortcode->block_icon_1,
+    //         'block_text_1' => $shortcode->block_text_1,
+    //         'block_link_1' => $shortcode->block_link_1,
+    //         'block_icon_2' => $shortcode->block_icon_2,
+    //         'block_text_2' => $shortcode->block_text_2,
+    //         'block_link_2' => $shortcode->block_link_2,
+    //         'block_icon_3' => $shortcode->block_icon_3,
+    //         'block_text_3' => $shortcode->block_text_3,
+    //         'block_link_3' => $shortcode->block_link_3,
+    //         'block_icon_4' => $shortcode->block_icon_4,
+    //         'block_text_4' => $shortcode->block_text_4,
+    //         'block_link_4' => $shortcode->block_link_4,
+    //         'block_icon_5' => $shortcode->block_icon_5,
+    //         'block_text_5' => $shortcode->block_text_5,
+    //         'block_link_5' => $shortcode->block_link_5,
+    //     ]);
+    // });
     add_shortcode('hotel-about', __('Hotel About'), __('Hotel About'), function (Shortcode $shortcode) {
+        $tabs = [];
+        for ($i = 1; $i <= 4; $i++) {
+            if ($shortcode->{'block_text_' . $i}) {
+                $tabs[] = [
+                    'icon' => $shortcode->{'block_icon_' . $i},
+                    'title' => $shortcode->{'block_text_' . $i},
+                    'subtitle' => $shortcode->{'block_link_' . $i},
+                ];
+            }
+        }
+
         return Theme::partial('short-codes.hotel-about', [
             'title' => $shortcode->title,
-            'description' => $shortcode->description,
             'subtitle' => $shortcode->subtitle,
-            'block_icon_1' => $shortcode->block_icon_1,
-            'block_text_1' => $shortcode->block_text_1,
-            'block_link_1' => $shortcode->block_link_1,
-            'block_icon_2' => $shortcode->block_icon_2,
-            'block_text_2' => $shortcode->block_text_2,
-            'block_link_2' => $shortcode->block_link_2,
-            'block_icon_3' => $shortcode->block_icon_3,
-            'block_text_3' => $shortcode->block_text_3,
-            'block_link_3' => $shortcode->block_link_3,
-            'block_icon_4' => $shortcode->block_icon_4,
-            'block_text_4' => $shortcode->block_text_4,
-            'block_link_4' => $shortcode->block_link_4,
-            'block_icon_5' => $shortcode->block_icon_5,
-            'block_text_5' => $shortcode->block_text_5,
-            'block_link_5' => $shortcode->block_link_5,
+            'tabs' => $tabs,
         ]);
     });
 
@@ -311,7 +329,7 @@ app()->booted(function (): void {
                     ->rows(3)
             );
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 4; $i++) {
             $form
                 ->add(
                     'block_icon_' . $i,
@@ -338,6 +356,7 @@ app()->booted(function (): void {
 
         return $form;
     });
+
 
     shortcode()->registerLoadingState('hotel-about', Theme::getThemeNamespace('partials.short-codes.hotel-about-skeleton'));
 
@@ -525,6 +544,14 @@ app()->booted(function (): void {
 
         shortcode()->registerLoadingState('hotel-featured-features', Theme::getThemeNamespace('partials.short-codes.hotel-featured-features-skeleton'));
 
+        // add_shortcode('rooms', __('Rooms'), __('Rooms'), function (Shortcode $shortcode) {
+        //     $rooms = Room::query()
+        //         ->wherePublished()
+        //         ->with(['slugable'])
+        //         ->get();
+
+        //     return Theme::partial('short-codes.rooms', compact('shortcode', 'rooms'));
+        // });
         add_shortcode('rooms', __('Rooms'), __('Rooms'), function (Shortcode $shortcode) {
             $rooms = Room::query()
                 ->wherePublished()
@@ -533,6 +560,7 @@ app()->booted(function (): void {
 
             return Theme::partial('short-codes.rooms', compact('shortcode', 'rooms'));
         });
+
 
         shortcode()->setAdminConfig('rooms', function (array $attributes) {
             $rooms = Room::query()
