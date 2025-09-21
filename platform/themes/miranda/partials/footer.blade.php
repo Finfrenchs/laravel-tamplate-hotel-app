@@ -185,8 +185,16 @@
             const $slider = $('.rooms-slider-horizontal');
 
             // Tombol manual
-            $('.prev-arrow').click(function(){ $slider.animate({scrollLeft: '-=320'}, 300); });
-            $('.next-arrow').click(function(){ $slider.animate({scrollLeft: '+=320'}, 300); });
+            // $('.prev-arrow').click(function(){ $slider.animate({scrollLeft: '-=320'}, 300); });
+            // $('.next-arrow').click(function(){ $slider.animate({scrollLeft: '+=320'}, 300); });
+            $('.prev-arrow').click(function(){
+                document.querySelector('.rooms-slider-horizontal')
+                    .scrollBy({ left: -320, behavior: 'smooth' });
+            });
+            $('.next-arrow').click(function(){
+                document.querySelector('.rooms-slider-horizontal')
+                    .scrollBy({ left: 320, behavior: 'smooth' });
+            });
 
             // Optional: drag scroll dengan mouse
             let isDown = false;
@@ -208,6 +216,7 @@
                 $slider.scrollLeft(scrollLeft - walk);
             });
         });
+
         </script>
 
 

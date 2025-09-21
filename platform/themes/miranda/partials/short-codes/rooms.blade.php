@@ -1,9 +1,15 @@
 <section class="room-slider pt-5 pb-5" style="background-color: #f9f9f9;">
     <div class="container">
         {{-- Title & Subtitle --}}
-        <div class="section-header text-center mb-4">
-            <h2 class="section-title">Pilihan Kamar Terbaik</h2>
-            <p class="section-subtitle">Nikmati kenyamanan dan fasilitas terbaik selama menginap</p>
+        <div class="section-header d-flex justify-content-between align-items-start mb-4">
+            <div class="section-text">
+                <h2 class="section-title">Pilihan Kamar Terbaik</h2>
+                <p class="section-subtitle">Nikmati kenyamanan dan fasilitas terbaik selama menginap</p>
+            </div>
+            <div class="slider-arrows">
+                <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>
+                <button class="next-arrow"><i class="fal fa-angle-right"></i></button>
+            </div>
         </div>
 
         {{-- Slider --}}
@@ -21,10 +27,10 @@
         </div>
 
         {{-- Arrows --}}
-        <div class="slider-arrows">
+        {{-- <div class="slider-arrows">
             <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>
             <button class="next-arrow"><i class="fal fa-angle-right"></i></button>
-        </div>
+        </div> --}}
     </div>
 </section>
 
