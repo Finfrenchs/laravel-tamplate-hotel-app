@@ -23,8 +23,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="banner-content text-center">
-                        <span class="promo-tag" data-animation="fadeInDown" data-delay=".6s">{{ $tag['title'] }}</span>
-                        <h1 class="title" data-animation="fadeInLeft" data-delay=".9s">{!! $tag['description'] !!}</h1>
+                        {{-- <span class="promo-tag" data-animation="fadeInDown" data-delay=".6s">{{ $tag['title'] }}</span> --}}
+                        {{-- <h1 class="title" data-animation="fadeInLeft" data-delay=".9s">{!! $tag['description'] !!}</h1> --}}
+                        <h1 class="title" data-animation="fadeInDown" data-delay=".9s">{{ $tag['title'] }}</h1>
+                        <p class="promo-tag" data-animation="fadeInLeft" data-delay=".6s">{!! $tag['description'] !!}</p>
+
                         <ul>
                             @if ($tag['primary_slider_button_url'] && $tag['primary_button_text'])
                                 <li data-animation="fadeInUp" data-delay="1.1s">

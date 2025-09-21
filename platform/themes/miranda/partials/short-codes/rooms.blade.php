@@ -3,8 +3,8 @@
         {{-- Title & Subtitle --}}
         <div class="section-header d-flex justify-content-between align-items-start mb-4">
             <div class="section-text">
-                <h2 class="section-title">Pilihan Kamar Terbaik</h2>
-                <p class="section-subtitle">Nikmati kenyamanan dan fasilitas terbaik selama menginap</p>
+                <p class="section-title">PILIHAN KAMAR TERBAIK</p>
+                <h2 class="section-subtitle">Nikmati kenyamanan anda.</h2>
             </div>
             <div class="slider-arrows">
                 <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>

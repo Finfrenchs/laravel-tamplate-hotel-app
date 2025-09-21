@@ -5,8 +5,17 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="banner-content text-center">
-                            <span class="promo-tag" data-animation="fadeInDown" data-delay=".6s">{{ theme_option('slider-title-' . $i) }}</span>
-                            <h1 class="title" data-animation="fadeInLeft" data-delay=".9s">{!! theme_option('slider-description-' . $i) !!}</h1>
+                            {{-- <span class="promo-tag" data-animation="fadeInDown" data-delay=".6s">{{ theme_option('slider-title-' . $i) }}</span>
+                            <h1 class="title" data-animation="fadeInLeft" data-delay=".9s">{!! theme_option('slider-description-' . $i) !!}</h1> --}}
+                            <div class="banner-content text-center">
+                                <h1 class="title" data-animation="fadeInDown" data-delay=".6s">
+                                    {{ theme_option('slider-title-' . $i) }}
+                                </h1>
+                                <span class="promo-tag" data-animation="fadeInLeft" data-delay=".9s">
+                                    {!! theme_option('slider-description-' . $i) !!}
+                                </span>
+                            </div>
+
                             <ul>
                                 <li data-animation="fadeInUp" data-delay="1.1s">
                                     <a class="main-btn btn-filled" href="{{ theme_option('slider-primary-button-url-' . $i) }}">{{ theme_option('slider-primary-button-text-' . $i) }}</a>
