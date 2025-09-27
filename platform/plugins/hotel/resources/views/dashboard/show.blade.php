@@ -76,21 +76,20 @@
             </x-core::table>
 
             <div class="mt-4 text-end">
-                {{-- Tombol bayar --}}
-                @if(($invoice->status ?? '') !== 'paid')
+                @if ($invoice->status !== 'paid')
                     <form method="POST" action="{{ route('hotel-invoices.pay', ['id' => $invoice->id, 'type' => request('type')]) }}">
                         @csrf
                         @method('PUT')
-                        <select name="status" class="form-control d-inline-block w-auto">
-                            <option value="pending" {{ ($invoice->status ?? '') === 'pending' ? 'selected' : '' }}>Pending</option>
-                            <option value="paid" {{ ($invoice->status ?? '') === 'paid' ? 'selected' : '' }}>Paid</option>
-                        </select>
-                        <button type="submit" class="btn btn-success">Save</button>
+
+                        <button type="submit" class="btn btn-success">
+                            Bayar
+                        </button>
                     </form>
                 @else
-                    <span class="badge bg-success">Already Paid</span>
+                    <span class="badge bg-success">Paid</span>
                 @endif
             </div>
+
         </x-core::card.body>
     </x-core::card>
 @endsection

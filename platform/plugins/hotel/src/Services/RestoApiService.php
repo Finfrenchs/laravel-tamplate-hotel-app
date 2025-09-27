@@ -10,6 +10,7 @@ class RestoApiService
 
     public function __construct()
     {
+        // $this->baseUrl = env('RESTO_API_URL') ?: config('services.resto_api.base_url', 'http://172.31.208.1:8001/api/v1/resto');
         $this->baseUrl = env('RESTO_API_URL') ?: config('services.resto_api.base_url', 'https://resto.kedasresort.com/api/v1/resto');
     }
 
@@ -34,14 +35,15 @@ class RestoApiService
     // 🔹 Bayar lobby
     public function payLobby(int $id)
     {
-        return Http::post($this->baseUrl . "/{$id}/pay-lobby")->json();
+        return Http::put($this->baseUrl . "/{$id}/pay-lobby")->json();
     }
 
     // 🔹 Bayar hotel
     public function payHotel(int $id)
     {
-        return Http::post($this->baseUrl . "/{$id}/pay-hotel")->json();
+        return Http::put($this->baseUrl . "/{$id}/pay-hotel")->json();
     }
+
 
     // // 🔹 Ambil semua unpaid billing (lobby + hotel)
     // public function getBillings(array $params = [])

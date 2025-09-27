@@ -4,7 +4,7 @@
         <div class="section-header d-flex justify-content-between align-items-start mb-4">
             <div class="section-text">
                 <p class="section-title">PILIHAN KAMAR TERBAIK</p>
-                <h2 class="section-subtitle">Nikmati kenyamanan anda.</h2>
+                <h2 class="section-subtitle">Nikmati Kenyamanan Anda.</h2>
             </div>
             <div class="slider-arrows">
                 <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>
@@ -25,12 +25,6 @@
                 </a>
             @endforeach
         </div>
-
-        {{-- Arrows --}}
-        {{-- <div class="slider-arrows">
-            <button class="prev-arrow"><i class="fal fa-angle-left"></i></button>
-            <button class="next-arrow"><i class="fal fa-angle-right"></i></button>
-        </div> --}}
     </div>
 </section>
 

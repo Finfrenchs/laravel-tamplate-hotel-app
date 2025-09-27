@@ -7,8 +7,8 @@ use Botble\Hotel\Models\Booking;
 use Botble\Hotel\Models\Invoice;
 use Botble\Hotel\Services\RestoApiService;
 use Illuminate\Http\Request;
-use Botble\Hotel\Tables\HotelInvoiceTable; // NEW
-use Botble\Hotel\Tables\RestoBillingTable; // NEW
+// use Botble\Hotel\Tables\HotelInvoiceTable; // NEW
+// use Botble\Hotel\Tables\RestoBillingTable; // NEW
 use Botble\Base\Facades\Assets;
 
 
@@ -104,6 +104,36 @@ class HotelInvoiceController extends BaseController
     }
 
 
+
+
+    // 🔹 Bayar invoice resto
+    public function payInvoiceWithResto(Request $request, $id)
+    {
+        $type = $request->input('type', 'lobby');
+
+        try {
+            if ($type === 'lobby') {
+                $response = $this->restoApi->payLobby($id);
+            } elseif ($type === 'hotel') {
+                $response = $this->restoApi->payHotel($id);
+            }
+
+            if (!isset($response['status']) || $response['status'] !== 'success') {
+                return redirect()->back()->with('error', 'API gagal: ' . ($response['message'] ?? 'Unknown error'));
+            }
+
+            return redirect()
+                ->route('hotel-invoices.dashboard.billings')
+                ->with('success', 'Invoice berhasil dibayar.');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('error', 'Gagal membayar invoice: ' . $e->getMessage());
+        }
+    }
+
+
+
     // public function showInvoiceWithResto($id, Request $request)
     // {
     //     $type = $request->query('type'); // lobby/hotel
@@ -123,21 +153,6 @@ class HotelInvoiceController extends BaseController
     //     return view('plugins/hotel::invoices.show', compact('invoice'));
     // }
 
-
-    // 🔹 Bayar invoice resto
-    public function payInvoiceWithResto(Request $request, $id)
-    {
-        $type = $request->input('type', 'lobby'); // default lobby kalau tidak ada
-
-        if ($type === 'lobby') {
-            $this->restoApi->payLobby($id);
-        } elseif ($type === 'hotel') {
-            $this->restoApi->payHotel($id);
-        }
-
-        return redirect()->route('hotel-invoices.dashboard.billings')
-            ->with('success', 'Invoice resto berhasil diperbarui.');
-    }
 
     // // 🔹 Dashboard Billings
     // public function dashboardBillings(Request $request)

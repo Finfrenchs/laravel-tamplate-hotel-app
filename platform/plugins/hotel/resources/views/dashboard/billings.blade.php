@@ -14,7 +14,8 @@
     <form method="GET" action="{{ route('hotel-invoices.dashboard.billings') }}" class="mb-4">
         <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Cari nama tamu / customer..."
                class="form-control w-1/3 inline-block" />
-        <button type="submit" class="btn btn-primary">Search</button>
+
+        <button type="submit" class="btn btn-primary mt-3">Search</button>
     </form>
 
     {{-- Resto Unpaid Billings --}}
